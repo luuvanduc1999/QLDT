@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/luuvanduc/project_folder/env/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
