@@ -22,7 +22,8 @@ from management import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^dashboard/', admin.site.urls),
+    url(r'^about-me/',views.aboutme, name='aboutme')
 ]
 
 

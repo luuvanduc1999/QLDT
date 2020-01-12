@@ -1,1 +1,25 @@
-<h1>Hello</h1>
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+    <div class="image">
+        <img src="https://media1.nguoiduatin.vn/media/vu-thi-thuy-tien/2019/07/16/da-i-ho-c-ba-ch-khoa-ha-no-i-cong-bo-die-m-chua-n-du-kie-na.jpg" alt="Smiley face" width= 100% height="700px">
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-embossed  navbar-expand-lg fixed-top" role="navigation">
+        <a class="navbar-brand" href="#">Trường tiểu học Bách Khoa</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav mr-auto">
+            <li class="active"><a href="/#">Trang chủ</a></li>
+            <li><a href="/dashboard">Trang quản trị</a></li>
+            <li><a href="/about-me">Giới thiệu</a></li>
+            </ul>
+            <p class="navbar-text navbar-right">Chào mừng đến với trường tiểu học Bách Khoa <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=10% alt="Smiley face"</p>
+
+        </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->       
+{% endblock %}

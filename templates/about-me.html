@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+
+    <nav class="navbar navbar-inverse navbar-embossed  navbar-expand-lg fixed-top" role="navigation">
+        <a class="navbar-brand" href="#">Trường tiểu học Bách Khoa</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav mr-auto">
+            <li><a href="/#">Trang chủ</a></li>
+            <li><a href="/dashboard">Trang quản trị</a></li>
+            <li class="active"><a href="/about-me">Giới thiệu</a></li>
+            </ul>
+            <p class="navbar-text navbar-right">Chào mừng đến với trường tiểu học Bách Khoa <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=10% alt="Smiley face"</p>
+
+        </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->       
+
+{% endblock %}
