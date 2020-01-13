@@ -10,16 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="https://www.insidevietnamtravel.com/image/x-icon" href="https://www.insidevietnamtravel.com/images/favicon.ico" rel="icon">
+    <link type="https://www.insidevietnamtravel.com/image/x-icon" href="{% static 'img/logobk.png' %}" rel="icon">
     {% block title %}
     {% endblock %}
-    {% block style %}
- <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'css/flat-ui.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/Footer-Dark.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    {% block style %}
     {% endblock %}
 </head>
 
@@ -27,7 +28,14 @@
 
     {% block content %}
     {% endblock %}
-
+    <div align="center">
+        <a href="/dashboard">
+            <button class="btn btn-hg btn-primary btn-reduce-on-xs">
+                Trang quản trị hệ thống
+            </button>
+        </a>
+        </div>
+        <p></p>
     <div class="footer-dark" style="background-image: url({% static 'img/footer.png' %});background-size: 100%;">
         <footer>
             <div class="container">

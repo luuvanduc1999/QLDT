@@ -1,0 +1,43 @@
+.aboutme-img {
+  max-width: 100%;
+}
+
+.text-left.title-box {
+  font-family: GoogleSans;
+  font-size: 30px;
+}
+
+.image-heading {
+  max-width: 100%;
+}
+
+.img-header {
+  width: 80%;
+}
+
+.image-ab {
+  max-width: 100%;
+}
+
+.h1, h1 {
+  font-family: GoogleSans;
+  font-size: 20px;
+  height: 50px;
+}
+
+.col-xl-10.offset-xl-1 {
+  height: 50px;
+}
+
+.edding {
+  height: 100px;
+}
+
+.img-new {
+  max-width: 100%;
+}
+
+.note {
+  font-size: 15px;
+}
+

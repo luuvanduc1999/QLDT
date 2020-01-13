@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from management import views
+from homepage import views as viewsH
 
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
+    url(r'^$', viewsH.home, name='home'),
     url(r'^dashboard/', admin.site.urls),
-    url(r'^about-me/',views.aboutme, name='aboutme')
+    url(r'^about-me/',viewsH.aboutme, name='aboutme'),
+    url(r'^schedule-week/',viewsH.sheduleweek, name='scheduleweek')
 ]
 
 

@@ -1,0 +1,41 @@
+
+    {% load static %}
+    {% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/flat-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
+</head>
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vRtuxBWXNCrSpI4vIfMHRV5e-wqLxIg7giyzwWNo0oSUUwGQmn750zAYLaU5IOB8hrBJ4QGxgaGteON/pub?embedded=true"></iframe>
+    
+<div>
+  {% for item in items %}
+    <div class="item">
+      <h3>{{ item.title|capfirst }}</h3>
+      <img src="{{ item.thumb.url }}" alt="Smiley face" height="200" >
+      <p>{{ item.note }}</p>
+    </div>
+  {% endfor %}
+</div>
+{{page}}
+<div class="pagination pagination-danger">
+
+  <a href="?page=1" class="btn btn-danger previous"> <i class="fui-arrow-left"> </i> Mới nhất  </a>
+
+  <ul>
+    {% for i in items.paginator.page_range %}
+        {% if i ==  items.number%}
+            <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+        {% else %}
+            <li ><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+
+  <a href="?page={{ items.paginator.num_pages }}" class="btn btn-danger next"> Cũ nhất <i class="fui-arrow-right"> </i></a>
+</div>
+
+
+

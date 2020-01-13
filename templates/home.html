@@ -3,7 +3,8 @@
 {% load staticfiles %}
 
 
-
+{% block style %}
+{% endblock %}
 {% block content %}
     <nav class="navbar navbar-inverse navbar-embossed  navbar-expand-lg fixed-top" role="navigation">
         <a class="navbar-brand" href="#">Trường tiểu học Bách Khoa</a>
@@ -11,18 +12,211 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav mr-auto">
             <li class="active"><a href="/#">Trang chủ</a></li>
-            <li><a href="/dashboard">Trang quản trị</a></li>
+            <li><a href="#">Lịch công tác</a></li>
+            <li><a href="#">Thông báo</a></li>
+            <li><a href="#">Tin tức sự kiện</a></li>
+            <li><a href="#">Văn bản trường</a></li>
             <li><a href="/about-me">Giới thiệu</a></li>
             </ul>
-            <p class="navbar-text navbar-right">Chào mừng đến với trường tiểu học Bách Khoa <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=10% alt="Smiley face"</p>
+            <p class="navbar-text navbar-right"> <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=40% alt="Smiley face"</p>
 
         </div><!-- /.navbar-collapse -->
     </nav><!-- /navbar -->       
 
-        <div class="text-center home-banner"><img class="img-fluid img-header" src="{% static 'img/1743bd-15584114663091322020789.png' %}">
+    <div class="text-center home-banner"><img class="img-fluid img-header" src="{% static 'img/1743bd-15584114663091322020789.png' %}">
         <div class="col-12 col-xl-10 offset-xl-1 text-left">
             <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
             <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
         </div>
     </div>
+
+<!-- Lịch công tác -->
+    <div class="news">
+        <div style="background-color: #346051;height: 57px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
+                        <ul class="pager">
+                        <li class="previous">
+                            <a href="#">
+                            <span>
+                                <i class="fas fa-angle-double-right"></i>
+                                Lịch công tác
+                            </span>
+                            </a>
+                        </li>    
+                        </ul>
+                    
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
+            <div class="container">
+                <div class="row d-xl-flex justify-content-xl-center">
+                    <div class="col-md-4 col-xl-4"><img src="{{scheduleWs.0.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{scheduleWs.0.title}}</strong></p>
+                        <p class="note">{{scheduleWs.0.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4"><img src="{{scheduleWs.1.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{scheduleWs.1.title}}</strong></p>
+                        <p class="note">{{scheduleWs.1.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4">
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.2.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.3.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.4.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.5.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.6.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
+    </div>
+
+    <!-- Thông báo -->
+    <div class="news">
+        <div style="background-color: #346051;height: 57px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
+                        <ul class="pager">
+                        <li class="previous">
+                            <a href="#">
+                            <span>
+                                <i class="fas fa-angle-double-right"></i>
+                                Thông báo
+                            </span>
+                            </a>
+                        </li>    
+                        </ul>
+                    
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
+            <div class="container">
+                <div class="row d-xl-flex justify-content-xl-center">
+                    <div class="col-md-4 col-xl-4"><img src="{{notis.0.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{notis.0.title}}</strong></p>
+                        <p class="note">{{notis.0.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4"><img src="{{notis.1.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{notis.1.title}}</strong></p>
+                        <p class="note">{{notis.1.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4">
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.2.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.3.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.4.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.5.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.6.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
+    </div>
+
+    <!-- Tin Tuc, Su kien -->
+    <div class="news">
+        <div style="background-color: #346051;height: 57px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
+                        <ul class="pager">
+                        <li class="previous">
+                            <a href="#">
+                            <span>
+                                <i class="fas fa-angle-double-right"></i>
+                                Tin tức, sự kiện
+                            </span>
+                            </a>
+                        </li>    
+                        </ul>
+                    
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
+            <div class="container">
+                <div class="row d-xl-flex justify-content-xl-center">
+                    <div class="col-md-4 col-xl-4"><img src="{{events.0.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{events.0.title}}</strong></p>
+                        <p class="note">{{events.0.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4"><img src="{{events.1.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{events.1.title}}</strong></p>
+                        <p class="note">{{events.1.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4">
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.2.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.3.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.4.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.5.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.6.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
+    </div>
+
+
+    <!-- Văn bản trường -->
+    <div class="news">
+        <div style="background-color: #346051;height: 57px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
+                        <ul class="pager">
+                        <li class="previous">
+                            <a href="#">
+                            <span>
+                                <i class="fas fa-angle-double-right"></i>
+                                Văn bản trường
+                            </span>
+                            </a>
+                        </li>    
+                        </ul>
+                    
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
+            <div class="container">
+                <div class="row d-xl-flex justify-content-xl-center">
+                    <div class="col-md-4 col-xl-4"><img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{docs.0.title}}</strong></p>
+                        <p class="note">{{docs.0.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4"><img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
+                        <p class="title-new"><strong>{{docs.1.title}}</strong></p>
+                        <p class="note">{{docs.1.note}}</p>
+                    </div>
+                    <div class="col-md-4 col-xl-4">
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.2.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.3.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.4.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.5.title}}</p>
+                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.6.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center">
+            <strong>&nbsp;</strong>
+        </h1>
+
+         
+    </div>
+
 {% endblock %}
