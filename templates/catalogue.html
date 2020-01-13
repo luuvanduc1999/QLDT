@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/styles-Catalogue.css' %}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-embossed  navbar-expand-lg fixed-top" role="navigation">
+        <a class="navbar-brand" href="#">Trường tiểu học Bách Khoa</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav mr-auto">
+            <li><a href="/">Trang chủ</a></li>
+
+        {% if index ==  1%}
+            <li  class="active"><a href="/schedule-week/">Lịch công tác</a></li>
+        {% else %}
+            <li><a href="/schedule-week/">Lịch công tác</a></li>
+        {% endif %}
+
+        {% if index ==  2%}
+            <li class="active"><a href="/notification">Thông báo</a></li>
+        {% else %}
+            <li><a href="/notification">Thông báo</a></li>
+        {% endif %}
+
+
+        {% if index ==  3%}
+            <li class="active"><a href="/news-event">Tin tức sự kiện</a></li>
+        {% else %}
+            <li><a href="/news-event">Tin tức sự kiện</a></li>
+        {% endif %}
+
+        {% if index ==  4%}
+            <li class="/document"><a href="#">Văn bản trường</a></li>
+        {% else %}
+            <li><a href="/document">Văn bản trường</a></li>
+        {% endif %}
+            
+            <li><a href="/about-me">Giới thiệu</a></li>
+            </ul>
+            <p class="navbar-text navbar-right"> <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=40% alt="Smiley face"></p>
+
+        </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->   
+
+    <div class="text-center home-banner"><img class="img-fluid img-header" src="{% static 'img/1743bd-15584114663091322020789.png' %}">
+        <div class="col-12 col-xl-10 offset-xl-1 text-left">
+            <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
+            <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center"><strong>&nbsp;</strong></h1>
+        </div>
+    </div>
+
+    <div style="background-color: #346051;height: 57px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="/">
+                                <span>
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                </a>
+                            </li>                              
+                            <li class="next">
+                                {% if index == 1%}
+                                <a href="/schedule-week/">
+                                    <span>                                       
+                                        Lịch công tác
+                                        <i class="fas fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                {% endif %}   
+
+                                {% if index == 2%}
+                                <a href="#">
+                                    <span>                                       
+                                        Thông báo
+                                        <i class="fas fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                {% endif %} 
+
+                                {% if index == 3%}
+                                <a href="#">
+                                    <span>                                       
+                                        Tin tức, sự kiện
+                                        <i class="fas fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                {% endif %} 
+
+                                {% if index == 4%}
+                                <a href="#">
+                                    <span>                                       
+                                        Văn bản trường
+                                        <i class="fas fa-angle-right"></i>
+                                    </span>
+                                </a>
+                                {% endif %} 
+                                
+                                                             
+                            </li>    
+                        </ul>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p></p>
+    <div class="col-xl-12 offset-xl-5 text-center">
+        <div class="pagination pagination-danger">
+            <a href="?page=1" class="btn btn-danger previous"> <i class="fui-arrow-left"> </i> Mới nhất  </a>
+            <ul>
+                {% for i in items.paginator.page_range %}
+                    {% if i ==  items.number%}
+                        <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% else %}
+                        <li ><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <a href="?page={{ items.paginator.num_pages }}" class="btn btn-danger next"> Cũ nhất <i class="fui-arrow-right"> </i></a>
+        </div>
+    </div>
+
+    {% for item in items %}
+    <p></p>
+    <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
+        <div class="container">
+            <div class="row d-xl-flex justify-content-xl-center">
+            
+                <div class="col-md-4 col-xl-11 offset-xl-0 text-left">
+                <a href="/{{ctl}}/{{item.id}}">      
+                   <img src="{{item.thumb.url}}" width="550px" class="img-new">
+                    <p></p>
+                    <p class="title-new"><i class="fa fa-star"></i><strong>{{item.title}}</strong></p>
+                </a>
+                    <p class="note">{{item.note}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <p></p>
+    
+    <div class="col-xl-12 offset-xl-5 text-center">
+        <div class="pagination pagination-danger">
+            <a href="?page=1" class="btn btn-danger previous"> <i class="fui-arrow-left"> </i> Mới nhất  </a>
+            <ul>
+                {% for i in items.paginator.page_range %}
+                    {% if i ==  items.number%}
+                        <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% else %}
+                        <li ><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <a href="?page={{ items.paginator.num_pages }}" class="btn btn-danger next"> Cũ nhất <i class="fui-arrow-right"> </i></a>
+        </div>
+    </div>
+
+{% endblock %}

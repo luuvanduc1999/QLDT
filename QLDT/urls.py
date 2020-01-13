@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.urls import path, re_path
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
@@ -25,9 +26,15 @@ urlpatterns = [
     url(r'^$', viewsH.home, name='home'),
     url(r'^dashboard/', admin.site.urls),
     url(r'^about-me/',viewsH.aboutme, name='aboutme'),
-    url(r'^schedule-week/',viewsH.sheduleweek, name='scheduleweek')
+    path('schedule-week/',viewsH.scheduleweek, name='scheduleweek'),
+    re_path(r'^schedule-week/(\d+)/',viewsH.scheduleweekItem, name='si'),
+    path('notification/',viewsH.notis, name='Notification'),
+    re_path(r'^notification/(\d+)/',viewsH.notisItem, name='NotificationI'),
+    path('news-event/',viewsH.event, name='newsEvent'),
+    re_path(r'^news-event/(\d+)/',viewsH.eventItem, name='newsEventI'),
+    path('document/',viewsH.document, name='document'),
+    re_path(r'^document/(\d+)/',viewsH.documentItem, name='documentI')
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

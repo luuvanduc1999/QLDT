@@ -4,6 +4,7 @@
 
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'css/styles-Home.css' %}">
 {% endblock %}
 {% block content %}
     <nav class="navbar navbar-inverse navbar-embossed  navbar-expand-lg fixed-top" role="navigation">
@@ -11,12 +12,12 @@
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav mr-auto">
-            <li class="active"><a href="/#">Trang chủ</a></li>
-            <li><a href="#">Lịch công tác</a></li>
-            <li><a href="#">Thông báo</a></li>
-            <li><a href="#">Tin tức sự kiện</a></li>
-            <li><a href="#">Văn bản trường</a></li>
-            <li><a href="/about-me">Giới thiệu</a></li>
+                <li class="active"><a href="/#">Trang chủ</a></li>
+                <li><a href="/schedule-week/">Lịch công tác</a></li>
+                <li><a href="/notification">Thông báo</a></li>
+                <li><a href="/news-event">Tin tức sự kiện</a></li>
+                <li><a href="/document">Văn bản trường</a></li>
+                <li><a href="/about-me">Giới thiệu</a></li>
             </ul>
             <p class="navbar-text navbar-right"> <img src="https://sie.hust.edu.vn/wp-content/uploads/2017/03/logobk.png" width=40% alt="Smiley face"</p>
 
@@ -37,14 +38,21 @@
                 <div class="row">
                     <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
                         <ul class="pager">
-                        <li class="previous">
-                            <a href="#">
-                            <span>
-                                <i class="fas fa-angle-double-right"></i>
-                                Lịch công tác
-                            </span>
-                            </a>
-                        </li>    
+                            <li class="previous">
+                                <a href="#">
+                                <span>
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                </a>
+                            </li>                               
+                            <li class="next">
+                                <a href="/schedule-week">
+                                <span>
+                                    <i class="fas fa-angle-double-right"></i>
+                                    Lịch công tác
+                                </span>
+                                </a>
+                            </li>    
                         </ul>
                     
                         <p></p>
@@ -55,20 +63,36 @@
         <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
             <div class="container">
                 <div class="row d-xl-flex justify-content-xl-center">
-                    <div class="col-md-4 col-xl-4"><img src="{{scheduleWs.0.thumb.url}}" height="238px" class="img-new">
-                        <p class="title-new"><strong>{{scheduleWs.0.title}}</strong></p>
+                    <div class="col-md-4 col-xl-4">
+                        <a href="/schedule-week/{{scheduleWs.0.id}}">        
+                            <img src="{{scheduleWs.0.thumb.url}}" height="238px" class="img-new">
+                            <p class="title-new"><strong>{{scheduleWs.0.title}}</strong></p>
+                        </a>
                         <p class="note">{{scheduleWs.0.note}}</p>
                     </div>
-                    <div class="col-md-4 col-xl-4"><img src="{{scheduleWs.1.thumb.url}}" height="238px" class="img-new">
-                        <p class="title-new"><strong>{{scheduleWs.1.title}}</strong></p>
+                    <div class="col-md-4 col-xl-4">
+                        <a href="/schedule-week/{{scheduleWs.1.id}}">
+                        <img src="{{scheduleWs.1.thumb.url}}" height="238px" class="img-new">                        
+                            <p class="title-new"><strong>{{scheduleWs.1.title}}</strong></p>
+                        </a>
                         <p class="note">{{scheduleWs.1.note}}</p>
                     </div>
                     <div class="col-md-4 col-xl-4">
-                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.2.title}}</p>
-                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.3.title}}</p>
-                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.4.title}}</p>
-                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.5.title}}</p>
-                        <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.6.title}}</p>
+                        <a href="/schedule-week/{{scheduleWs.2.id}}">
+                            <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.2.title}}</p>
+                        </a>
+                        <a href="/schedule-week/{{scheduleWs.3.id}}">
+                            <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.3.title}}</p>
+                        </a>
+                        <a href="/schedule-week/{{scheduleWs.4.id}}">    
+                            <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.4.title}}</p>
+                        </a>
+                        <a href="/schedule-week/{{scheduleWs.5.id}}">
+                            <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.5.title}}</p>
+                        </a>
+                        <a href="/schedule-week/{{scheduleWs.6.id}}">
+                            <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{scheduleWs.6.title}}</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -83,14 +107,21 @@
                 <div class="row">
                     <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
                         <ul class="pager">
-                        <li class="previous">
-                            <a href="#">
-                            <span>
-                                <i class="fas fa-angle-double-right"></i>
-                                Thông báo
-                            </span>
-                            </a>
-                        </li>    
+                            <li class="previous">
+                                <a href="#">
+                                <span>
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                </a>
+                            </li>                           
+                            <li class="next">
+                                <a href="/notification">
+                                <span>
+                                    <i class="fas fa-angle-double-right"></i>
+                                    Thông báo
+                                </span>
+                                </a>
+                            </li>    
                         </ul>
                     
                         <p></p>
@@ -101,20 +132,36 @@
         <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
             <div class="container">
                 <div class="row d-xl-flex justify-content-xl-center">
-                    <div class="col-md-4 col-xl-4"><img src="{{notis.0.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/notification/{{notis.0.id}}">
+                        <img src="{{notis.0.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{notis.0.title}}</strong></p>
+                    </a>
                         <p class="note">{{notis.0.note}}</p>
                     </div>
-                    <div class="col-md-4 col-xl-4"><img src="{{notis.1.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/notification/{{notis.1.id}}">
+                        <img src="{{notis.1.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{notis.1.title}}</strong></p>
+                    </a>
                         <p class="note">{{notis.1.note}}</p>
                     </div>
                     <div class="col-md-4 col-xl-4">
+                    <a href="/notification/{{notis.2.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.2.title}}</p>
+                    </a>
+                    <a href="/notification/{{notis.3.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.3.title}}</p>
+                    </a>
+                    <a href="/notification/{{notis.4.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.4.title}}</p>
+                    </a>
+                    <a href="/notification/{{notis.5.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.5.title}}</p>
+                    </a>
+                    <a href="/notification/{{notis.6.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{notis.6.title}}</p>
+                    </a>
                     </div>
                 </div>
             </div>
@@ -129,14 +176,21 @@
                 <div class="row">
                     <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
                         <ul class="pager">
-                        <li class="previous">
-                            <a href="#">
-                            <span>
-                                <i class="fas fa-angle-double-right"></i>
-                                Tin tức, sự kiện
-                            </span>
-                            </a>
-                        </li>    
+                            <li class="previous">
+                                <a href="/#">
+                                <span>
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                </a>
+                            </li>                           
+                            <li class="next">
+                                <a href="/news-event">
+                                <span>
+                                    <i class="fas fa-angle-double-right"></i>
+                                    Tin tức, sự kiện
+                                </span>
+                                </a>
+                            </li>    
                         </ul>
                     
                         <p></p>
@@ -147,20 +201,36 @@
         <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
             <div class="container">
                 <div class="row d-xl-flex justify-content-xl-center">
-                    <div class="col-md-4 col-xl-4"><img src="{{events.0.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/news-event/{{events.0.id}}">
+                        <img src="{{events.0.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{events.0.title}}</strong></p>
+                    </a>
                         <p class="note">{{events.0.note}}</p>
                     </div>
-                    <div class="col-md-4 col-xl-4"><img src="{{events.1.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/news-event/{{events.1.id}}">
+                        <img src="{{events.1.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{events.1.title}}</strong></p>
+                    </a>
                         <p class="note">{{events.1.note}}</p>
                     </div>
                     <div class="col-md-4 col-xl-4">
+                    <a href="/news-event/{{events.2.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.2.title}}</p>
+                    </a>
+                    <a href="/news-event/{{events.3.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.3.title}}</p>
+                    </a>
+                    <a href="/news-event/{{events.4.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.4.title}}</p>
+                    </a>
+                    <a href="/news-event/{{events.5.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.5.title}}</p>
+                    </a>
+                    <a href="/news-event/{{events.6.id}}">
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{events.6.title}}</p>
+                    </a>
                     </div>
                 </div>
             </div>
@@ -176,8 +246,15 @@
                 <div class="row">
                     <div class="col-xl-12 offset-xl-0 d-xl-flex align-items-xl-center" style="height: 56px;">
                         <ul class="pager">
-                        <li class="previous">
-                            <a href="#">
+                            <li class="previous">
+                                <a href="#">
+                                <span>
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                </a>
+                            </li>                           
+                        <li class="next">
+                            <a href="/document">
                             <span>
                                 <i class="fas fa-angle-double-right"></i>
                                 Văn bản trường
@@ -194,27 +271,41 @@
         <div class="border rounded shadow-sm" style="background-color: #fcfffd;">
             <div class="container">
                 <div class="row d-xl-flex justify-content-xl-center">
-                    <div class="col-md-4 col-xl-4"><img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/document/{{docs.0.id}}"> 
+                        <img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{docs.0.title}}</strong></p>
+                    </a>
                         <p class="note">{{docs.0.note}}</p>
                     </div>
-                    <div class="col-md-4 col-xl-4"><img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
+                    <div class="col-md-4 col-xl-4">
+                    <a href="/document/{{docs.1.id}}"> 
+                        <img src="{{docs.0.thumb.url}}" height="238px" class="img-new">
                         <p class="title-new"><strong>{{docs.1.title}}</strong></p>
+                    </a>
                         <p class="note">{{docs.1.note}}</p>
                     </div>
                     <div class="col-md-4 col-xl-4">
+                    <a href="/document/{{docs.2.id}}"> 
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.2.title}}</p>
+                    </a>
+                    <a href="/document/{{docs.3.id}}"> 
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.3.title}}</p>
+                    </a>
+                    <a href="/document/{{docs.4.id}}"> 
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.4.title}}</p>
+                    </a>
+                    <a href="/document/{{docs.5.id}}"> 
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.5.title}}</p>
+                    </a>
+                    <a href="/document/{{docs.6.id}}"> 
                         <p class="oldder-new"><i class="fas fa-retweet"></i>&nbsp;{{docs.6.title}}</p>
+                    </a>
                     </div>
                 </div>
             </div>
         </div>
-        <h1 class="text-center text-success d-xl-flex justify-content-xl-start align-items-xl-center">
-            <strong>&nbsp;</strong>
-        </h1>
+
 
          
     </div>
